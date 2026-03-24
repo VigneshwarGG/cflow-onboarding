@@ -133,22 +133,22 @@ export class AppComponent {
   getStepHeroTitle(): string {
     switch (this.currentStep) {
       case 2:
-        return '';
+        return 'Identify the friction';
       case 3:
-        return '';
+        return 'Tailored for your team';
       default:
-        return '';
+        return 'Welcome to Cflow';
     }
   }
 
   getStepHeroDescription(): string {
     switch (this.currentStep) {
       case 2:
-        return 'Start smarter, not harder. Pick your department and unlock workflows already built for your team no setup, no guesswork.';
+        return 'Tell us about the manual tasks slowing you down, and we\'ll show you how to automate them in minutes.';
       case 3:
-        return 'Minutes from now, this won’t be manual anymore. Let’s finish setting things up.';
+        return 'Pick your department to unlock dozens of pre-built workflows designed specifically for your industry.';
       default:
-        return 'Manual work slows everything down. Tell us what’s broken. We’ll help you fix it in minutes.';
+        return 'Setting up your company details helps us customize your automation experience from day one.';
     }
   }
 }
