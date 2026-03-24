@@ -1,0 +1,52 @@
+<div class="step-container">
+  <h1 class="modal-title">Let's set up your company</h1>
+  <p class="modal-subtitle"></p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>How big is your team?</label>
+      <div class="team-sizes">
+        <label class="size-option" *ngFor="let size of teamSizes" [class.selected]="form.get('teamSize')?.value === size">
+          <input type="radio" formControlName="teamSize" [value]="size" />
+          {{ size }}
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Company Name</label>
+      <input type="text" class="form-control" placeholder="Your company name" formControlName="companyName" />
+    </div>
+
+    <div class="form-group">
+      <label>Contact Number</label>
+      <div class="contact-group">
+        <div class="select-wrapper">
+          <ng-select
+            class="custom-ng-select"
+            [items]="countryCodes"
+            bindLabel="label"
+            bindValue="code"
+            [clearable]="false"
+            [searchable]="false"
+            formControlName="countryCode"
+            appendTo="body"
+          >
+          </ng-select>
+        </div>
+        <input
+          type="text"
+          class="form-control input-tel"
+          placeholder="A business contact number"
+          formControlName="contactNumber"
+          (input)="onContactNumberInput($event)"
+          inputmode="numeric"
+        />
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button type="submit" class="btn-continue" [class.disabled]="form.invalid" [disabled]="form.invalid">Continue</button>
+    </div>
+  </form>
+</div>

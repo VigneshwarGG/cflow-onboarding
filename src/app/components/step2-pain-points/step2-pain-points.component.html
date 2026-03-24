@@ -1,0 +1,35 @@
+<div class="step-container">
+  <h1 class="modal-title">What would you like to improve first?</h1>
+  <p class="modal-subtitle"></p>
+
+  <form [formGroup]="form" (ngSubmit)="onNext()">
+    <div class="form-group" formGroupName="selections">
+      <label class="font-medium">Select your pain points</label>
+      <div class="pain-points-grid mt-2">
+        <label
+          class="pain-point-option"
+          *ngFor="let option of options"
+          [class.selected]="form.get('selections.' + option)?.value"
+        >
+          <input type="checkbox" [formControlName]="option" />
+          {{ option }}
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group fade-in mt-2" *ngIf="showOtherTextarea">
+      <label class="font-medium mb-2 d-block">Others</label>
+      <textarea
+        class="form-control"
+        rows="3"
+        placeholder="Explain your pain points"
+        formControlName="otherDetails"
+      ></textarea>
+    </div>
+
+    <div class="modal-actions split-actions">
+      <button type="button" class="btn-outline" (click)="onPrev()">Back</button>
+      <button type="submit" class="btn-continue">Continue</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,93 @@
+<!-- New Layout: Image on Left + Managed Content on Right -->
+<div class="layout-container">
+  <main class="main-content">
+    <!-- Left Decorative Box with Image -->
+    <div class="left-box-container">
+      <div class="hero-box">
+        <img [src]="getStepIllustration()" alt="Step Illustration" class="hero-image" />
+        <div class="hero-title-container">
+          <h2 class="hero-title">{{ getStepHeroTitle() }}</h2>
+          <p class="hero-description">{{ getStepHeroDescription() }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side Content Area -->
+    <div class="right-box-container">
+      <div class="modal enlarged-modal">
+        <!-- Integrated Header: Logo (left) and Support (right) -->
+        <header class="modal-header">
+          <div class="dummy-logo">
+            <img src="logo.svg" alt="Cflow Logo" width="100" height="30" />
+          </div>
+          <div class="support-action">
+            <a class="support-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                ></path>
+              </svg>
+              <span>Contact Support</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Centered Core Content (mx-auto style) -->
+        <div class="step-container-centered">
+          <!-- Step-by-Step Numerical Progress Bar -->
+          <div class="step-progress-wrapper">
+            <div class="step-item" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+              <span class="step-number">1</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+              <span class="step-number">2</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item" [class.active]="currentStep >= 3" [class.completed]="currentStep > 3">
+              <span class="step-number">3</span>
+            </div>
+          </div>
+
+          <!-- Step Content -->
+          <div class="step-content-scroll">
+            <app-step1-company
+              *ngIf="currentStep === 1"
+              [form]="setupForm"
+              [teamSizes]="teamSizes"
+              [countryCodes]="countryCodes"
+              (next)="nextStep()"
+            ></app-step1-company>
+
+            <app-step2-pain-points
+              *ngIf="currentStep === 2"
+              [form]="painPointsForm"
+              [options]="painPointOptions"
+              (next)="nextStep()"
+              (prev)="previousStep()"
+            ></app-step2-pain-points>
+
+            <app-step3-departments
+              *ngIf="currentStep === 3"
+              [form]="departmentsForm"
+              [options]="departmentsOptions"
+              (next)="nextStep()"
+              (prev)="previousStep()"
+            ></app-step3-departments>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

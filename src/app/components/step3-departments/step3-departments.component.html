@@ -1,0 +1,36 @@
+<div class="step-container">
+  <h1 class="modal-title">Choose a department. We'll handle the setup</h1>
+  <p class="modal-subtitle"></p>
+
+  <form [formGroup]="form" (ngSubmit)="onNext()">
+    <div class="form-group" formGroupName="selections">
+      <label class="font-medium">Select your department</label>
+      <div class="pain-points-grid mt-2">
+        <label
+          class="pain-point-option"
+          *ngFor="let option of options"
+          [class.selected]="form.get('selections.' + option)?.value"
+        >
+          <input type="checkbox" [formControlName]="option" />
+          {{ option }}
+        </label>
+      </div>
+    </div>
+
+    <div class="modal-actions split-actions pt-2">
+      <button type="button" class="btn-outline" (click)="onPrev()">Back</button>
+      <button type="submit" class="btn-continue">Continue</button>
+    </div>
+
+    <div class="divider-container">
+      <span class="divider-text">or you can</span>
+    </div>
+
+    <div class="start-ai-action">
+      <button type="button" class="btn-ai-start">
+        <img src="/ai-logo.svg" alt="Seyarc AI Logo" width="20" height="20" class="ai-logo-img" />
+        <span class="ai-text">Start Creating Workflow using Seyarc AI</span>
+      </button>
+    </div>
+  </form>
+</div>

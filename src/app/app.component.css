@@ -1,0 +1,223 @@
+/* ===== Layout Container ===== */
+:host {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  color: #111827;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.layout-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* ===== Main Content Area ===== */
+.main-content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+/* Left Hero Partition - Fixed 35% Width */
+.left-box-container {
+  flex: 0 0 35%; /* Fixed 35% width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  background-color: #ffffff;
+}
+
+.hero-box {
+  background-color: #fafafa;
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image {
+  flex: 0 0 70%;
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 1;
+  margin-bottom: 8px;
+}
+
+.hero-title-container {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #111827;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.hero-description {
+  font-size: 18px;
+  color: #6b7280;
+  margin: 12px 0 0 0;
+  line-height: 1.6;
+}
+
+/* Right Content Partition - Remaining 65% Width */
+.right-box-container {
+  flex: 0 0 65%; /* Fixed 65% width */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 32px 32px 32px 32px; /* Padding for top corners */
+  overflow-y: auto;
+}
+
+/* ===== The Consolidated Form Shell ===== */
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%; /* Ensure it fills the height of right-box-container */
+}
+
+/* Modal Header: Logo (left) + Support (right) at the corners */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 32px;
+  flex: 0 0 auto; /* Header stays at fixed height */
+}
+
+.dummy-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Step Content Wrapper - Aligned to center/middle */
+.step-container-centered {
+  width: 100%;
+  max-width: 540px; 
+  margin: auto;     /* Centering both horizontally and vertically */
+  display: flex;
+  flex-direction: column;
+  flex: 1;          /* Allow it to take up available space for vertical centering */
+  justify-content: center; /* Center content within this div as well */
+}
+
+/* Step-by-Step Numerical Progress Bar - Also Centered */
+.step-progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.step-item {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.step-item.active {
+  background-color: white;
+  color: #1a56db;
+  box-shadow: 0 0 0 2px #1a56db;
+}
+
+.step-item.completed {
+  background-color: #1a56db;
+  color: white;
+}
+
+.step-connector {
+  flex: 0 0 30px;
+  height: 1.5px;
+  background-color: #e5e7eb;
+}
+
+.step-content-scroll {
+  width: 100%;
+}
+
+/* Support Button Styling (compact pill) */
+.support-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: #4b5563;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 12px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.support-link:hover {
+  background-color: #f9fafb;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+}
+
+.modal-title {
+  margin: 0 0 12px 0 !important;
+  font-size: 32px;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: -0.015em;
+}
+
+.modal-subtitle {
+  margin: 0 0 40px 0;
+  color: #4b5563;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
+  .layout-container {
+    overflow-y: auto;
+  }
+  .main-content {
+    flex-direction: column;
+  }
+  .left-box-container {
+    height: 350px;
+    flex: none;
+    padding: 24px;
+  }
+  .right-box-container {
+    flex: none;
+    padding: 40px 24px;
+  }
+  .step-container-centered {
+    max-width: 100%;
+  }
+}

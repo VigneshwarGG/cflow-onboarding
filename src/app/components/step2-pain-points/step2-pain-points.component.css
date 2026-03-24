@@ -1,0 +1,151 @@
+.modal-title {
+  margin: 0 0 8px 0 !important;
+  font-size: 32px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.modal-subtitle {
+  margin: 0 0 40px 0 !important;
+  color: #555;
+  font-size: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #111827;
+  background-color: white;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  font-weight: 400;
+}
+
+.form-control:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-control::placeholder {
+  color: #9ca3af;
+  font-family: inherit;
+}
+
+.pain-points-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pain-point-option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4b5563;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s;
+}
+
+.pain-point-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pain-point-option:hover {
+  border-color: #d1d5db;
+}
+
+.pain-point-option.selected {
+  border-color: #1d4ed8;
+  background-color: #eff6ff;
+  color: #1d4ed8 !important;
+  font-weight: 400 !important;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.split-actions {
+  justify-content: space-between;
+}
+
+.btn-continue {
+  background: #1a56db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-continue:hover {
+  background: #1e40af;
+}
+
+.btn-outline {
+  background: white;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.mt-2 { margin-top: 8px; }
+.d-block { display: block; }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
